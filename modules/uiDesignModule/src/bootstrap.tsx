@@ -1,5 +1,5 @@
 import ThemeProvider from './theme/ThemeProvider';
-import Button from './elements';
+import Button from './elements/Button';
 
 export {
     ThemeProvider,

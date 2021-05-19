@@ -1,16 +1,21 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import pink from '@material-ui/core/colors/pink';
+import grey from '@material-ui/core/colors/grey';
 
 export const baseTheme = createMuiTheme({
-    palette: {
-        primary: {
-            main: pink[50]
-        }
-    },
     overrides: {
-        MuiTypography: {
-            colorTextPrimary: {
-                color: 'red'
+        MuiCssBaseline: {
+            '@global': {
+                '*::-webkit-scrollbar': {
+                    width: 8,
+                    height: 8,
+                },
+                '*::-webkit-scrollbar-thumb': {
+                    background: grey[400],
+                    borderRadius: 8,
+                },
+                '*::-webkit-scrollbar-track': {
+                    background: grey[300],
+                },
             },
         }
     }
