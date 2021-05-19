@@ -1,7 +1,8 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
-const deps = require("./package.json").dependencies;
+const deps = require('./package.json').dependencies;
 
 module.exports = {
     entry: './src/index',
@@ -10,18 +11,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
-      port: 3001
+        contentBase: path.join(__dirname, 'dist'),
+        port: 3002
     },
     module: {
         rules: [
-            // {
-            //     test: /bootstrap\.tsx$/,
-            //     loader: 'bundle-loader',
-            //     options: {
-            //         lazy: true,
-            //     },
-            // },
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
@@ -58,31 +52,29 @@ module.exports = {
         ]
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js']
+        extensions: ['.tsx', '.ts', '.jsx', '.js']
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'uiDesignModule',
-            library: { type: 'var', name: 'uiDesignModule' },
-            filename: 'uiDesignModule.js',
+            name: 'authorizationModule',
+            library: { type: 'var', name: 'authorizationModule' },
+            filename: 'authorizationModule.js',
             exposes: {
-                './uiDesignElements/Button': './src/elements/Button',
-                './uiDesignTheme': './src/theme/ThemeProvider'
+              './Auth': './src/App',
             },
             shared: {
                 react: {
                     singleton: true,
                     requiredVersion: deps.react,
                 },
-                '@material-ui/core': {
+                'react-dom': {
                     singleton: true,
-                    requiredVersion: deps['@material-ui/core'],
+                    requiredVersion: deps['react-dom'],
                 },
-                '@material-ui/icons': {
-                    singleton: true,
-                    requiredVersion: deps['@material-ui/icons']
-                }
             },
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html')
         })
     ]
 }

@@ -1,18 +1,31 @@
-import React, { StrictMode, Suspense, lazy } from 'react';
+import React, { StrictMode, Suspense } from 'react';
+import { Typography } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
 // @ts-ignore
-const ThemeProvider = lazy(() => import('uiDesignModule/theme'));
+const ThemeProvider = React.lazy(() => import('uiDesignModule/uiDesignTheme'));
 // @ts-ignore
-const { Button } = lazy(() => import('uiDesignModule/elements'));
+const Button = React.lazy(() => import('uiDesignModule/uiDesignElements/Button'));
+// @ts-ignore
+const Auth = React.lazy(() => import('authorizationModule/Auth'));
 
-export const App = () => (
+export const useStyles = makeStyles<Theme>((theme: Theme) => ({
+    colorText: {
+        color: theme.palette.primary.main
+    }
+}));
+
+export const App = () => {
+    const classes = useStyles();
+
+    return (
         <StrictMode>
-            <h1>TTTT</h1>
-            {/*<ThemeProvider>*/}
                 <Suspense fallback="Loading...">
-                    <div>App</div>
-                    <Button />
+                    <ThemeProvider>
+                        <Typography classes={{ root: classes.colorText }}>Core App Module</Typography>
+                        <Auth />
+                        <Button />
+                    </ThemeProvider>
                 </Suspense>
-            {/*</ThemeProvider>*/}
         </StrictMode>
-    )
+    )}

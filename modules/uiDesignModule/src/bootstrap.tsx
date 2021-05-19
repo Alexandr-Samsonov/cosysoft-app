@@ -1,7 +1,7 @@
-import { ThemeProvider } from './theme/ThemeProvider';
-import * as Elements from './elements';
+import ThemeProvider from './theme/ThemeProvider';
+import Button from './elements';
 
 export {
     ThemeProvider,
-    Elements
+    Button
 }

@@ -17,13 +17,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /bootstrap\.tsx$/,
-                loader: 'bundle-loader',
-                options: {
-                    lazy: true,
-                },
-            },
-            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: {
@@ -67,7 +60,8 @@ module.exports = {
             library: { type: 'var', name: 'coreAppModule' },
             filename: 'coreAppModule.js',
             remotes: {
-                uiDesignModule: "uiDesignModule@http://localhost:3001/uiDesignModule.js"
+                uiDesignModule: 'uiDesignModule',
+                authorizationModule: 'authorizationModule'
             },
             shared: {
                 react: {
