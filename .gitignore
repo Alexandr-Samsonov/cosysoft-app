@@ -2,6 +2,9 @@ node_modules
 dist
 .idea/
 
+modules/authorizationModule/node_modules
+modules/authorizationModule/dist
+
 modules/coreAppModule/node_modules
 modules/coreAppModule/dist
 

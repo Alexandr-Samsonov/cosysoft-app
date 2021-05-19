@@ -3,6 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-
+    "build": "yarn workspaces run build",
+    "serve": "wsrun --parallel serve",
+    "dev": "wsrun --parallel dev"
+  },
+  "workspaces": [
+    "modules/*"
+  ],
+  "devDependencies": {
+    "wsrun": "^5.2.4"
   }
 }
