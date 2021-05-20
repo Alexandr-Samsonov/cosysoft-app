@@ -3,5 +3,5 @@ import Button from './elements/Button';
 
 export {
     ThemeProvider,
-    Button
+    Button,
 }

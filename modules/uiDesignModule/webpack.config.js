@@ -15,13 +15,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /bootstrap\.tsx$/,
-            //     loader: 'bundle-loader',
-            //     options: {
-            //         lazy: true,
-            //     },
-            // },
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
@@ -66,8 +59,7 @@ module.exports = {
             library: { type: 'var', name: 'uiDesignModule' },
             filename: 'uiDesignModule.js',
             exposes: {
-                './uiDesignElements/Button': './src/elements/Button',
-                './uiDesignTheme': './src/theme/ThemeProvider'
+                './core': './src/bootstrap',
             },
             shared: {
                 react: {

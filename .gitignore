@@ -2,11 +2,5 @@ node_modules
 dist
 .idea/
 
-modules/authorizationModule/node_modules
-modules/authorizationModule/dist
-
-modules/coreAppModule/node_modules
-modules/coreAppModule/dist
-
-modules/uiDesignModule/node_modules
-modules/uiDesignModule/dist
+modules/**/node_modules
+modules/**/dist
