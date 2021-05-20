@@ -11,7 +11,7 @@ export const App = () => (
                     <ThemeProvider>
                         <Typography color="primary">Core App Module</Typography>
                         <Auth />
-                        <Button />
+                        <Button>UI Design Module</Button>
                     </ThemeProvider>
                 </Suspense>
         </StrictMode>

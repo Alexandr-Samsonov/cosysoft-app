@@ -5,10 +5,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { baseTheme } from './baseTheme';
 
 export default function ThemeProvider({ children }: PropsWithChildren<{}>) {
-    return (
-        <MuiThemeProvider theme={baseTheme}>
-            <CssBaseline />
-            {children}
-        </MuiThemeProvider>
-    )
+  return (
+    <MuiThemeProvider theme={baseTheme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  );
 }

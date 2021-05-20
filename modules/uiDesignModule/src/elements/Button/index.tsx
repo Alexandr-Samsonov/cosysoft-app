@@ -1,8 +1,10 @@
-import React from 'react';
-import { Button as MuiButton } from '@material-ui/core';
+import React, { PropsWithChildren } from 'react';
+import MuiButton, { ButtonProps } from '@material-ui/core/Button';
 
-const Button = () => (
-        <MuiButton variant="contained"> UI Design Module</MuiButton>
-)
+const Button = ({
+  children, variant = 'contained', color = 'primary', ...props
+}: PropsWithChildren<ButtonProps>) => (
+  <MuiButton variant={variant} color={color} {...props}>{children}</MuiButton>
+);
 
-export default Button
+export default Button;
